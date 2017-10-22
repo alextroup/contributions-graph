@@ -1,4 +1,5 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
 """
 The 'templates' directory contains two Jinja2 templates for rendering the
 graph:
@@ -12,14 +13,13 @@ This module is responsible for preparing and rendering the templates.
 
 from collections import namedtuple
 import datetime
-from types import StringTypes
 import ntpath
 
 from jinja2 import Environment, PackageLoader
 
-import contributions.dateutils as dateutils
-import contributions.parser as parser
-import contributions.statistics as statistics
+import dateutils
+import parser
+import statistics
 
 GridCell = namedtuple('GridCell', ['date', 'contributions'])
 
@@ -29,7 +29,7 @@ def create_graph(filepaths):
     Prepare the `index.html` template.
     """
     graphs = []
-    if isinstance(filepaths, StringTypes):
+    if isinstance(filepaths, str):
         filepaths = [filepaths]
 
     for path in filepaths:
@@ -37,24 +37,24 @@ def create_graph(filepaths):
 
         graph = {
             "data": gridify_contributions(contributions),
-            "cell_class": _cell_class(contributions.values()),
+            "cell_class": _cell_class(list(contributions.values())),
             "longest_streak": statistics.longest_streak(
-                [key for key, val in contributions.iteritems() if val > 0]
+                [key for key, val in contributions.items() if val > 0]
             ),
             "current_streak": statistics.current_streak(
-                [key for key, val in contributions.iteritems() if val > 0]
+                [key for key, val in contributions.items() if val > 0]
             ),
-            "sum": sum(contributions.itervalues()),
+            "sum": sum(contributions.values()),
             "repo_name": ntpath.basename(path)
         }
 
         graph["last_date"] = (
-            [""] + sorted([key for key, v in contributions.iteritems() if v])
+            [""] + sorted([key for key, v in contributions.items() if v])
         )[-1]
 
         graphs.append(graph)
 
-    env = Environment(loader=PackageLoader('contributions', 'templates'))
+    env = Environment(loader=PackageLoader('render_html', 'templates'))
 
     env.filters['tooltip'] = tooltip_text
     env.filters['display_date'] = dateutils.display_date
@@ -161,7 +161,7 @@ def filter_months(months):
     which contains days only from that month. This function filters a list of
     months so that only the first unique month heading is shown.
     """
-    for idx in reversed(range(len(months))):
+    for idx in reversed(list(range(len(months)))):
         if months[idx] == months[idx - 1]:
             months[idx] = ""
 
