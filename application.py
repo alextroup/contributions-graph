@@ -2,6 +2,7 @@ from flask import Flask, flash, redirect, render_template, request, \
     session, url_for, jsonify
 from flask_session import Session
 import os
+from datetime import datetime
 
 from render_html import *
 from dateutils import *
@@ -39,10 +40,12 @@ def index():
     file_list = sorted(file_list)
 
     graph_data = create_graph(file_list)
+    current_time = datetime.datetime.now().time()
 
     return render_template('index.html',
                                         graphs=graph_data[0],
                                         today=graph_data[1],
                                         start=graph_data[2],
                                         weekdays=graph_data[3],
-                                        month=graph_data[4])
+                                        month=graph_data[4],
+                                        current_time=current_time)
