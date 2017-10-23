@@ -14,7 +14,13 @@
 <body>
   <h1>Personal Statistics</h1>
   <p>Data points are in minutes. Otherwise, anything that makes logical sense.</p>
+
     <div class="container">
+      <div class="container">
+        {% for graph in graphs %}
+        <a class="btn btn-primary" data-toggle="collapse" href="#{{ graph.repo_name}}">{{ graph.repo_name }}</a>
+        {% endfor %}
+        </div>
       {%- for graph in graphs %}
       {% include "graph.html" -%}
       {% endfor %}
