@@ -36,6 +36,7 @@ def index():
     file_list = []
     for file in os.listdir("static/records"):
         file_list.append('static/records/' + file)
+    file_list = sorted(file_list)
 
     graph_data = create_graph(file_list)
 

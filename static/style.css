@@ -1,3 +1,7 @@
+html, body {
+background: white;  /* fallback for old browsers */
+}
+
 .contrib_grad0 {
   background-color: #eee;
 }
