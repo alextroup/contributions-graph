@@ -162,7 +162,7 @@ background: white;  /* fallback for old browsers */
   margin-bottom: 5px;
 }
 
-h1, p {
+h1, p, a {
   text-align: center;
 }
 
