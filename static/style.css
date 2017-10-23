@@ -1,29 +1,28 @@
-$cell-dimension: 15px;
-$column-width:    1px;
+.contrib_grad0 {
+  background-color: #eee;
+}
 
-$tooltip-bg: rgba(0.85, 0.85, 0.85, 0.8);
-$tooltip-border: rgb(0.85, 0.85, 0.85);
-$tooltip-color: white;
+.contrib_grad1 {
+  background-color: #d6e685;
+}
 
-$accent-gray: #aaa;
+.contrib_grad2 {
+  background-color: #8cc665;
+}
 
-$tooltip-width:  235px;
-$tooltip-height:  30px;
-$tooltip-top:    -45px;
+.contrib_grad3 {
+  background-color: #44a340;
+}
 
-.contrib_grad0 { background-color: #eee; }
-.contrib_grad1 { background-color: #d6e685; }
-.contrib_grad2 { background-color: #8cc665; }
-.contrib_grad3 { background-color: #44a340; }
-.contrib_grad4 { background-color: #1e6823; }
-
+.contrib_grad4 {
+  background-color: #1e6823;
+}
 
 /*------------------------------------*\
   # PANEL STYLES
 \*------------------------------------*/
-
 .panel {
-  margin-left:  auto;
+  margin-left: auto;
   margin-right: auto;
   margin-top: 40px;
   margin-bottom: 40px;
@@ -35,22 +34,20 @@ $tooltip-top:    -45px;
   text-align: center;
 }
 
-
 /*------------------------------------*\
   # CELLS
 \*------------------------------------*/
-
 .calendar-row {
   display: table;
-  border-spacing: ($column-width * 2) $column_width;
+  border-spacing: 2px 1px;
 }
 
 .cell {
-  width:      $cell-dimension;
-  height:     $cell-dimension;
-  min-width:  $cell-dimension;
-  min-height: $cell-dimension;
-  margin: $column-width;
+  width: 15px;
+  height: 15px;
+  min-width: 15px;
+  min-height: 15px;
+  margin: 1px;
   display: table-cell;
   resize: none;
 }
@@ -68,11 +65,11 @@ $tooltip-top:    -45px;
   text-align: right;
   font-size: 0.8em;
   padding-right: 3px;
-  width: $cell-dimension * 2;
+  width: 30px;
 }
 
 .month-heading {
-  width: 2 * ($cell-dimension + $column-width);
+  width: 32px;
   font-size: 0.8em;
   text-align: left;
   color: #aaa;
@@ -82,15 +79,9 @@ $tooltip-top:    -45px;
   margin-top: 16px;
 }
 
-
 /*------------------------------------*\
   # TOOLTIPS
 \*------------------------------------*/
-
-// This tooltip code isn't mine - there are quite a few CSS-only tooltips
-// if you search Google. I don't remember where I got this originally; it's
-// been sitting in my back pocket for a while. :-/
-
 .cell {
   position: relative;
   z-index: 24;
@@ -105,30 +96,28 @@ $tooltip-top:    -45px;
 }
 
 .cell:hover span {
-  width:  $tooltip-width;
-  height: $tooltip-height;
-  top:    $tooltip-top;
-  left:   -($tooltip-width - $cell_dimension) / 2;
-
-  display:  inline-block;
+  width: 235px;
+  height: 30px;
+  top: -45px;
+  left: -110px;
+  display: inline-block;
   position: absolute;
-
-  background-color: $tooltip-bg;
-  color: $tooltip-color;
+  background-color: rgba(1, 1, 1, 0.8);
+  color: white;
   text-align: center;
   font-size: 12px;
   border-radius: 4px;
-  line-height: $tooltip-height;
+  line-height: 30px;
   vertical-align: middle;
 }
 
 .cell:hover span:before {
   border: solid;
-  border-color: $tooltip-bg transparent;
+  border-color: rgba(1, 1, 1, 0.8) transparent;
   border-width: 7px 7px 0 7px;
   bottom: -7px;
   content: "";
-  left: ($tooltip-width - $cell_dimension) / 2;
+  left: 110px;
   position: absolute;
   z-index: 99;
 }
@@ -137,15 +126,13 @@ $tooltip-top:    -45px;
   display: none;
 }
 
-
 /*------------------------------------*\
   # STATISTICS
 \*------------------------------------*/
-
 .statistics.row {
   border-top: 1px solid #ddd;
   width: 100%;
-  margin-left:  auto;
+  margin-left: auto;
   margin-right: auto;
 }
 
@@ -156,12 +143,12 @@ $tooltip-top:    -45px;
 }
 
 .col-md-4.middle {
-  border-left:  1px solid #ddd;
+  border-left: 1px solid #ddd;
   border-right: 1px solid #ddd;
 }
 
 .annotation {
-  color: $accent-gray;
+  color: #aaa;
   font-size: 0.85em;
   margin-bottom: 2px;
 }
