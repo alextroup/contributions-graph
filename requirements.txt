@@ -2,3 +2,4 @@ Jinja2
 MarkupSafe
 Flask
 gunicorn
+flask_session
