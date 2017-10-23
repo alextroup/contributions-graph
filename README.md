@@ -1,6 +1,6 @@
-# contribution-graph
+# Flask contribution-graph
 
-This is a clone of the Contributions chart from the GitHub user page, written in Python.
+This is a Flask version (Python 3) clone of the Contributions chart from the GitHub user page, written in Python.
 
 This is what it looks like with the default settings:
 
