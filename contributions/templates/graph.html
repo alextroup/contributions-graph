@@ -1,6 +1,6 @@
 {%- set data = graph.data -%}
 <div class="panel panel-default">
-      <div class="panel-heading">Contributions for <code>{{ graph.repo_name }}</code></div>
+      <div class="panel-heading">Data points for <code>{{ graph.repo_name }}</code></div>
       <div class="panel-body">
         <center>
         <div class="contributions-graph">
@@ -21,7 +21,7 @@
             </div>
             {% for cell in row -%}
             <div class="cell contrib_{{ graph.cell_class(cell) }}">
-              <span>{{ cell|tooltip }}</span>
+              <span>{{ cell|tooltip | safe }}</span>
             </div>
             {% endfor %}
           </div>
@@ -46,7 +46,7 @@
       </div>
       <div class="statistics row">
         <div class="col-md-4">
-          <p class="annotation">Total contributions</p>
+          <p class="annotation">Total data points</p>
           <p class="big_stat">{{ graph.sum }}</p>
           <p class="annotation">{{ start|display_date }} &ndash; {{ today|display_date }}</p>
         </div>
@@ -57,7 +57,7 @@
           <p class="annotation">{{ graph.longest_streak[0]|display_date }} &ndash; {{ graph.longest_streak[-1]|display_date }}</p>
           {% else %}
           <p class="big_stat">0 days</p>
-          <p class="annotation">No recent contributions</p>
+          <p class="annotation">No recent data points</p>
           {% endif %}
         </div>
         <div class="col-md-4">

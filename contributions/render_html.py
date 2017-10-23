@@ -60,7 +60,7 @@ def create_graph(filepaths):
     env.filters['display_date'] = dateutils.display_date
     env.filters['elapsed_time'] = dateutils.elapsed_time
 
-    template = env.get_template("index.html")
+    #template = env.get_template("index.html")
 
     weekdays = dateutils.weekday_initials()
     for idx in [0, 2, 4, 6]:
@@ -72,11 +72,15 @@ def create_graph(filepaths):
     ]
     months = filter_months(months)
 
-    return template.render(graphs=graphs,
+    today = dateutils.today()
+    start = dateutils.start()
+    return((graphs, today, start, weekdays, months))
+    """return template.render(graphs=graphs,
                            today=dateutils.today(),
                            start=dateutils.start(),
                            weekdays=weekdays,
                            months=months)
+    """
 
 
 def gridify_contributions(contributions):
@@ -125,11 +129,11 @@ def tooltip_text(cell):
     Returns the tooltip text for a cell.
     """
     if cell.contributions == 0:
-        count = "No contributions"
+        count = "No data points"
     elif cell.contributions == 1:
-        count = "1 contribution"
+        count = "1 data point"
     else:
-        count = "%d contributions" % cell.contributions
+        count = "%d data points" % cell.contributions
     date_str = dateutils.display_date(cell.date)
     return "<strong>%s</strong> on %s" % (count, date_str)
 
