@@ -34,7 +34,8 @@ def index():
     # to do; allow this to be changed without changing code!
     a = create_graph(['static/records/Mandarin (Minutes)',
                           'static/records/French (Minutes)',
-                          'static/records/Exercise (Minutes)'])
+                          'static/records/Exercise (Minutes)',
+                          'static/records/Portuguese (Minutes)'])
 
     return render_template('index.html',
                                         graphs=a[0],
