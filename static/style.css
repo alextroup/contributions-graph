@@ -165,3 +165,7 @@ background: white;  /* fallback for old browsers */
 h1, p {
   text-align: center;
 }
+
+.btn {
+  margin-left: 10px;
+}

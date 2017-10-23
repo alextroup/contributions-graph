@@ -9,18 +9,23 @@
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
   <link rel="stylesheet" href="static/style.css">
+
+
 </head>
 
 <body>
-  <h1>Personal Statistics</h1>
-  <p>Data points are in minutes. Otherwise, anything that makes logical sense.</p>
+
+
 
     <div class="container">
-      <div class="container">
+
+        <h1>Personal Statistics (Alex)</h1>
+  <p>Data points are usually minutes. Otherwise, anything that makes logical sense.
+  The philosophy of this page is that making such data public will motivate me. Please <i>do</i> judge!</p>
+
         {% for graph in graphs %}
-        <a class="btn btn-primary" data-toggle="collapse" href="#{{ graph.repo_name}}">{{ graph.repo_name }}</a>
+        <a class="btn" data-toggle="collapse" href="#{{ graph.repo_name}}">{{ graph.repo_name }}</a>
         {% endfor %}
-        </div>
       {%- for graph in graphs %}
       {% include "graph.html" -%}
       {% endfor %}
