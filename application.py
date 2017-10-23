@@ -1,6 +1,7 @@
 from flask import Flask, flash, redirect, render_template, request, \
     session, url_for, jsonify
 from flask_session import Session
+import os
 
 from render_html import *
 from dateutils import *
@@ -31,16 +32,16 @@ def index():
     app.jinja_env.filters["display_date"] = dateutils.display_date
     app.jinja_env.filters['elapsed_time'] = dateutils.elapsed_time
 
-    # to do; allow this to be changed without changing code!
-    a = create_graph(['static/records/Mandarin (Minutes)',
-                          'static/records/French (Minutes)',
-                          'static/records/Exercise (Minutes)',
-                          'static/records/Portuguese (Minutes)',
-                          'static/records/Reading (Minutes)'])
+    # get text / record files (must be in this folder)
+    file_list = []
+    for file in os.listdir("static/records"):
+        file_list.append('static/records/' + file)
+
+    graph_data = create_graph(file_list)
 
     return render_template('index.html',
-                                        graphs=a[0],
-                                        today=a[1],
-                                        start=a[2],
-                                        weekdays=a[3],
-                                        month=a[4])
+                                        graphs=graph_data[0],
+                                        today=graph_data[1],
+                                        start=graph_data[2],
+                                        weekdays=graph_data[3],
+                                        month=graph_data[4])

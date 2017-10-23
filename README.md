@@ -1,9 +1,11 @@
 # Flask contribution-graph
 
-This is a Flask version (Python 3) clone of the Contributions chart from the GitHub user page, written in Python.
+This is a _Flask_ version (Python 3) clone of the Contributions chart from the GitHub user page, written in Python.
 
-It is setup for personal use at the moment (i.e. hardcoded data files in /static/records), so you'll have to (currently)
-change this to suit your self.
+It is setup for personal use at the moment (i.e. data record files must go in /static/records)
+
+
+# Original Readme:
 
 This is what it looks like with the default settings:
 
