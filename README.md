@@ -2,6 +2,9 @@
 
 This is a Flask version (Python 3) clone of the Contributions chart from the GitHub user page, written in Python.
 
+It is setup for personal use at the moment (i.e. hardcoded data files in /static/records), so you'll have to (currently)
+change this to suit your self.
+
 This is what it looks like with the default settings:
 
 <img src="screenshot-green.png">

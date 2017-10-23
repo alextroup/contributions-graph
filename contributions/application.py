@@ -32,7 +32,9 @@ def index():
     app.jinja_env.filters['elapsed_time'] = dateutils.elapsed_time
 
     # to do; allow this to be changed without changing code!
-    a = create_graph(['static/records/Mandarin (Minutes)', 'static/records/French (Minutes)'])
+    a = create_graph(['static/records/Mandarin (Minutes)',
+                          'static/records/French (Minutes)',
+                          'static/records/Exercise (Minutes)'])
 
     return render_template('index.html',
                                         graphs=a[0],
