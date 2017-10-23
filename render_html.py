@@ -63,7 +63,7 @@ def create_graph(filepaths):
     #template = env.get_template("index.html")
 
     weekdays = dateutils.weekday_initials()
-    for idx in [0, 2, 4, 6]:
+    for idx in []:
         weekdays[idx] = ""
 
     months = [
